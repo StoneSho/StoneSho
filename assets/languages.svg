@@ -9,17 +9,17 @@
 <text x="52" y="100" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">JavaScript</text>
 <rect x="190" y="89" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="89" width="255" height="10" rx="5" fill="#f1e05a"/>
-<text x="484" y="100" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">19.0%</text>
+<text x="484" y="100" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">18.9%</text>
 <circle cx="36" cy="127" r="6" fill="#555555"/>
 <text x="52" y="131" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">C</text>
 <rect x="190" y="120" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="120" width="232" height="10" rx="5" fill="#555555"/>
-<text x="484" y="131" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">17.3%</text>
+<text x="484" y="131" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">17.1%</text>
 <circle cx="36" cy="158" r="6" fill="#A97BFF"/>
 <text x="52" y="162" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">Kotlin</text>
 <rect x="190" y="151" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="151" width="218" height="10" rx="5" fill="#A97BFF"/>
-<text x="484" y="162" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">16.2%</text>
+<text x="484" y="162" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">16.1%</text>
 <circle cx="36" cy="189" r="6" fill="#b07219"/>
 <text x="52" y="193" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">Java</text>
 <rect x="190" y="182" width="270" height="10" rx="5" fill="#2b2e37"/>
@@ -29,5 +29,5 @@
 <text x="52" y="224" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">CSS</text>
 <rect x="190" y="213" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="213" width="129" height="10" rx="5" fill="#663399"/>
-<text x="484" y="224" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">9.6%</text>
+<text x="484" y="224" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">9.5%</text>
 </svg>
