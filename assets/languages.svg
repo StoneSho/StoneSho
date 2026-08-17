@@ -1,33 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="540" height="280" viewBox="0 0 540 280" role="img" aria-labelledby="title desc">
 <title id="title">Public repository language distribution</title>
 <desc id="desc">Most used programming languages across public repositories.</desc>
-<rect width="540" height="280" rx="8" fill="#0d1117"/>
-<rect x="1" y="1" width="538" height="278" rx="7" fill="none" stroke="#30363d"/>
-<text x="30" y="42" fill="#f0f6fc" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="700">PUBLIC REPOSITORY LANGUAGES</text>
-<text x="30" y="66" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12">Measured by tracked source size</text>
+<rect width="540" height="280" rx="8" fill="#16171d"/>
+<rect x="1" y="1" width="538" height="278" rx="7" fill="none" stroke="#393c46"/>
+<text x="30" y="42" fill="#f4f1ea" font-family="Arial Black,Arial,sans-serif" font-size="18">PUBLIC REPOSITORY LANGUAGES</text>
+<text x="30" y="66" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12">MEASURED BY TRACKED SOURCE SIZE</text>
 <circle cx="36" cy="96" r="6" fill="#f1e05a"/>
-<text x="52" y="100" fill="#c9d1d9" font-family="Segoe UI,Arial,sans-serif" font-size="13">JavaScript</text>
-<rect x="190" y="89" width="270" height="10" rx="5" fill="#21262d"/>
+<text x="52" y="100" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">JavaScript</text>
+<rect x="190" y="89" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="89" width="255" height="10" rx="5" fill="#f1e05a"/>
-<text x="484" y="100" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12" text-anchor="end">19.5%</text>
+<text x="484" y="100" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">19.0%</text>
 <circle cx="36" cy="127" r="6" fill="#555555"/>
-<text x="52" y="131" fill="#c9d1d9" font-family="Segoe UI,Arial,sans-serif" font-size="13">C</text>
-<rect x="190" y="120" width="270" height="10" rx="5" fill="#21262d"/>
+<text x="52" y="131" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">C</text>
+<rect x="190" y="120" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="120" width="232" height="10" rx="5" fill="#555555"/>
-<text x="484" y="131" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12" text-anchor="end">17.7%</text>
+<text x="484" y="131" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">17.3%</text>
 <circle cx="36" cy="158" r="6" fill="#A97BFF"/>
-<text x="52" y="162" fill="#c9d1d9" font-family="Segoe UI,Arial,sans-serif" font-size="13">Kotlin</text>
-<rect x="190" y="151" width="270" height="10" rx="5" fill="#21262d"/>
+<text x="52" y="162" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">Kotlin</text>
+<rect x="190" y="151" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="151" width="218" height="10" rx="5" fill="#A97BFF"/>
-<text x="484" y="162" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12" text-anchor="end">16.6%</text>
+<text x="484" y="162" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">16.2%</text>
 <circle cx="36" cy="189" r="6" fill="#b07219"/>
-<text x="52" y="193" fill="#c9d1d9" font-family="Segoe UI,Arial,sans-serif" font-size="13">Java</text>
-<rect x="190" y="182" width="270" height="10" rx="5" fill="#21262d"/>
+<text x="52" y="193" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">Java</text>
+<rect x="190" y="182" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="182" width="137" height="10" rx="5" fill="#b07219"/>
-<text x="484" y="193" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12" text-anchor="end">10.5%</text>
+<text x="484" y="193" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">10.2%</text>
 <circle cx="36" cy="220" r="6" fill="#663399"/>
-<text x="52" y="224" fill="#c9d1d9" font-family="Segoe UI,Arial,sans-serif" font-size="13">CSS</text>
-<rect x="190" y="213" width="270" height="10" rx="5" fill="#21262d"/>
+<text x="52" y="224" fill="#d9dde7" font-family="Segoe UI,Arial,sans-serif" font-size="13">CSS</text>
+<rect x="190" y="213" width="270" height="10" rx="5" fill="#2b2e37"/>
 <rect x="190" y="213" width="129" height="10" rx="5" fill="#663399"/>
-<text x="484" y="224" fill="#8b949e" font-family="Segoe UI,Arial,sans-serif" font-size="12" text-anchor="end">9.8%</text>
+<text x="484" y="224" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12" text-anchor="end">9.6%</text>
 </svg>
