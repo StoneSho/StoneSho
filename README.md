@@ -8,11 +8,10 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/StoneSho/StoneSho/main/assets/activity.svg" alt="Recent GitHub activity" width="100%" />
-</div>
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/StoneSho/StoneSho/main/assets/languages.svg" alt="Most used languages" width="100%" />
+  <picture>
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/StoneSho/StoneSho/main/assets/details-mobile.svg" />
+    <img src="https://raw.githubusercontent.com/StoneSho/StoneSho/main/assets/details.svg" alt="Monthly activity and public repository language distribution" width="100%" />
+  </picture>
 </div>
 
 <div align="center">
