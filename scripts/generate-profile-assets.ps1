@@ -240,6 +240,109 @@ for ($index = 0; $index -lt 4; $index++) {
 [void]$contributionSvg.Add('</svg>')
 Write-Svg "contributions.svg" $contributionSvg
 
+$mobileLeft = 32
+$mobileRight = 508
+$mobileBaseline = 402
+$mobileChartHeight = 102
+$mobileSpacing = ($mobileRight - $mobileLeft) / [Math]::Max(1, ($weekData.Count - 1))
+$mobilePoints = [System.Collections.Generic.List[object]]::new()
+for ($index = 0; $index -lt $weekData.Count; $index++) {
+    $week = $weekData[$index]
+    $ratio = $week.Count / [Math]::Max(1, $maximumWeek)
+    $amplitude = [Math]::Pow($ratio, 0.62) * $mobileChartHeight
+    [void]$mobilePoints.Add([PSCustomObject]@{
+        X = [Int32][Math]::Round($mobileLeft + ($index * $mobileSpacing))
+        Y = [Int32][Math]::Round($mobileBaseline - $amplitude)
+        Start = $week.Start
+        End = $week.End
+        Count = $week.Count
+    })
+}
+
+$mobileFirst = $mobilePoints[0]
+$mobileLast = $mobilePoints[$mobilePoints.Count - 1]
+$mobileSignalPath = "M $($mobileFirst.X) $($mobileFirst.Y)"
+$mobileAreaPath = "M $($mobileFirst.X) $mobileBaseline L $($mobileFirst.X) $($mobileFirst.Y)"
+for ($index = 1; $index -lt $mobilePoints.Count; $index++) {
+    $previous = $mobilePoints[$index - 1]
+    $current = $mobilePoints[$index]
+    $controlX = [Int32][Math]::Round(($previous.X + $current.X) / 2)
+    $curve = " C $controlX $($previous.Y), $controlX $($current.Y), $($current.X) $($current.Y)"
+    $mobileSignalPath += $curve
+    $mobileAreaPath += $curve
+}
+$mobileAreaPath += " L $($mobileLast.X) $mobileBaseline Z"
+
+$mobileMonths = [System.Collections.Generic.List[object]]::new()
+$seenMobileMonths = @{}
+foreach ($point in $mobilePoints) {
+    $monthKey = $point.Start.ToString("yyyy-MM")
+    if (-not $seenMobileMonths.ContainsKey($monthKey)) {
+        $seenMobileMonths[$monthKey] = $true
+        [void]$mobileMonths.Add([PSCustomObject]@{
+            X = $point.X
+            Label = $point.Start.ToString("MMM", [System.Globalization.CultureInfo]::InvariantCulture).ToUpperInvariant()
+        })
+    }
+}
+
+$mobileSvg = [System.Collections.Generic.List[string]]::new()
+[void]$mobileSvg.Add('<svg xmlns="http://www.w3.org/2000/svg" width="540" height="520" viewBox="0 0 540 520" role="img" aria-labelledby="title desc">')
+[void]$mobileSvg.Add('<title id="title">Annual contribution rhythm</title>')
+[void]$mobileSvg.Add('<desc id="desc">A mobile contribution signal route across the last year.</desc>')
+[void]$mobileSvg.Add('<rect width="540" height="520" rx="8" fill="#16171d"/>')
+[void]$mobileSvg.Add('<rect x="1" y="1" width="538" height="518" rx="7" fill="none" stroke="#393c46"/>')
+[void]$mobileSvg.Add('<text x="32" y="43" fill="#f4f1ea" font-family="Arial Black,Arial,sans-serif" font-size="22">BUILD RHYTHM</text>')
+[void]$mobileSvg.Add('<text x="32" y="66" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12">365 DAYS / WEEKLY ACTIVITY SIGNAL</text>')
+
+for ($index = 0; $index -lt $summary.Count; $index++) {
+    $entry = $summary[$index]
+    $column = $index % 2
+    $row = [Int32][Math]::Floor($index / 2)
+    $x = 32 + ($column * 254)
+    $labelY = 106 + ($row * 70)
+    $valueY = $labelY + 29
+    [void]$mobileSvg.Add(('<text x="{0}" y="{1}" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="11">{2}</text>' -f $x, $labelY, $entry.Label))
+    [void]$mobileSvg.Add(('<text x="{0}" y="{1}" fill="{2}" font-family="Cascadia Mono,Consolas,monospace" font-size="25" font-weight="700">{3}</text>' -f $x, $valueY, $entry.Color, $entry.Value))
+}
+
+[void]$mobileSvg.Add('<line x1="32" y1="222" x2="508" y2="222" stroke="#393c46"/>')
+[void]$mobileSvg.Add('<text x="32" y="248" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="11">WEEKLY SIGNAL ROUTE</text>')
+[void]$mobileSvg.Add('<line x1="32" y1="350" x2="508" y2="350" stroke="#2b2e37" stroke-dasharray="3 9"/>')
+[void]$mobileSvg.Add('<line x1="32" y1="402" x2="508" y2="402" stroke="#454955"/>')
+[void]$mobileSvg.Add(('<path d="{0}" fill="#203a43" fill-opacity="0.46"/>' -f $mobileAreaPath))
+[void]$mobileSvg.Add(('<path d="{0}" fill="none" stroke="#69d2e7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' -f $mobileSignalPath))
+
+foreach ($point in $mobilePoints) {
+    $color = Get-SignalColor $point.Count $maximumWeek
+    $radius = if ($point.Count -eq 0) { 2 } else { 4 + [Int32][Math]::Round(7 * [Math]::Pow(($point.Count / [Math]::Max(1, $maximumWeek)), 0.65)) }
+    [void]$mobileSvg.Add(('<circle cx="{0}" cy="{1}" r="{2}" fill="{3}" stroke="#16171d" stroke-width="2"><title>{4} to {5}: {6} contributions</title></circle>' -f $point.X, $point.Y, $radius, $color, $point.Start.ToString("yyyy-MM-dd"), $point.End.ToString("yyyy-MM-dd"), $point.Count))
+}
+
+$mobilePeak = @($mobilePoints | Where-Object { $_.Start -eq $peakWeek.Start } | Select-Object -First 1)[0]
+$mobilePeakLabelY = [Int32][Math]::Max(269, ($mobilePeak.Y - 22))
+[void]$mobileSvg.Add(('<line x1="{0}" y1="{1}" x2="{0}" y2="{2}" stroke="#ff8a65" stroke-width="1"/>' -f $mobilePeak.X, ($mobilePeak.Y - 7), ($mobilePeakLabelY + 5)))
+[void]$mobileSvg.Add(('<text x="{0}" y="{1}" fill="#ff8a65" font-family="Cascadia Mono,Consolas,monospace" font-size="11" font-weight="700" text-anchor="middle">PEAK / {2}</text>' -f $mobilePeak.X, $mobilePeakLabelY, (Format-Number $mobilePeak.Count)))
+
+for ($index = 0; $index -lt $mobileMonths.Count; $index++) {
+    if (($index % 2 -eq 0) -or ($index -eq ($mobileMonths.Count - 1))) {
+        $marker = $mobileMonths[$index]
+        [void]$mobileSvg.Add(('<line x1="{0}" y1="407" x2="{0}" y2="412" stroke="#5a6170"/>' -f $marker.X))
+        [void]$mobileSvg.Add(('<text x="{0}" y="436" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">{1}</text>' -f $marker.X, $marker.Label))
+    }
+}
+
+[void]$mobileSvg.Add('<text x="32" y="482" fill="#727887" font-family="Cascadia Mono,Consolas,monospace" font-size="10">LOW</text>')
+for ($index = 0; $index -lt 4; $index++) {
+    $legendX = 68 + ($index * 20)
+    $legendCount = [Math]::Max(1, [Math]::Ceiling($maximumWeek * ($index + 1) / 4))
+    [void]$mobileSvg.Add(('<circle cx="{0}" cy="479" r="5" fill="{1}"/>' -f $legendX, (Get-SignalColor $legendCount $maximumWeek)))
+}
+[void]$mobileSvg.Add('<text x="153" y="482" fill="#727887" font-family="Cascadia Mono,Consolas,monospace" font-size="10">HIGH</text>')
+[void]$mobileSvg.Add('<text x="32" y="504" fill="#727887" font-family="Cascadia Mono,Consolas,monospace" font-size="10">REAL WEEKLY TOTALS / NO SYNTHETIC ACTIVITY</text>')
+[void]$mobileSvg.Add('</svg>')
+Write-Svg "contributions-mobile.svg" $mobileSvg
+
 $activitySvg = [System.Collections.Generic.List[string]]::new()
 [void]$activitySvg.Add('<svg xmlns="http://www.w3.org/2000/svg" width="540" height="280" viewBox="0 0 540 280" role="img" aria-labelledby="title desc">')
 [void]$activitySvg.Add('<title id="title">Monthly contribution chapters</title>')
