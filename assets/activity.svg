@@ -4,7 +4,7 @@
 <rect width="540" height="280" rx="8" fill="#16171d"/>
 <rect x="1" y="1" width="538" height="278" rx="7" fill="none" stroke="#393c46"/>
 <text x="30" y="42" fill="#f4f1ea" font-family="Arial Black,Arial,sans-serif" font-size="18">MONTHLY CHAPTERS</text>
-<text x="30" y="66" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12">PEAK / APR / 13 CONTRIBUTIONS</text>
+<text x="30" y="66" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="12">PEAK / AUG / 21 CONTRIBUTIONS</text>
 <rect x="36" y="224" width="22" height="0" rx="3" fill="#3a3f4b"><title>Aug: 0 contributions</title></rect>
 <text x="47" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Aug</text>
 <rect x="73" y="224" width="22" height="0" rx="3" fill="#3a3f4b"><title>Sep: 0 contributions</title></rect>
@@ -13,23 +13,23 @@
 <text x="121" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Oct</text>
 <rect x="147" y="224" width="22" height="0" rx="3" fill="#3a3f4b"><title>Nov: 0 contributions</title></rect>
 <text x="158" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Nov</text>
-<rect x="184" y="204" width="22" height="20" rx="3" fill="#69d2e7"><title>Dec: 2 contributions</title></rect>
+<rect x="184" y="212" width="22" height="12" rx="3" fill="#69d2e7"><title>Dec: 2 contributions</title></rect>
 <text x="195" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Dec</text>
-<rect x="221" y="175" width="22" height="49" rx="3" fill="#45c4b0"><title>Jan: 5 contributions</title></rect>
+<rect x="221" y="194" width="22" height="30" rx="3" fill="#69d2e7"><title>Jan: 5 contributions</title></rect>
 <text x="232" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Jan</text>
 <rect x="258" y="224" width="22" height="0" rx="3" fill="#3a3f4b"><title>Feb: 0 contributions</title></rect>
 <text x="269" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Feb</text>
 <rect x="295" y="224" width="22" height="0" rx="3" fill="#3a3f4b"><title>Mar: 0 contributions</title></rect>
 <text x="306" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Mar</text>
-<rect x="332" y="96" width="22" height="128" rx="3" fill="#ff8a65"><title>Apr: 13 contributions</title></rect>
+<rect x="332" y="145" width="22" height="79" rx="3" fill="#ffd166"><title>Apr: 13 contributions</title></rect>
 <text x="343" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Apr</text>
-<rect x="369" y="135" width="22" height="89" rx="3" fill="#ffd166"><title>May: 9 contributions</title></rect>
+<rect x="369" y="169" width="22" height="55" rx="3" fill="#45c4b0"><title>May: 9 contributions</title></rect>
 <text x="380" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">May</text>
-<rect x="406" y="204" width="22" height="20" rx="3" fill="#69d2e7"><title>Jun: 2 contributions</title></rect>
+<rect x="406" y="212" width="22" height="12" rx="3" fill="#69d2e7"><title>Jun: 2 contributions</title></rect>
 <text x="417" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Jun</text>
-<rect x="443" y="214" width="22" height="10" rx="3" fill="#69d2e7"><title>Jul: 1 contributions</title></rect>
+<rect x="443" y="218" width="22" height="6" rx="3" fill="#69d2e7"><title>Jul: 1 contributions</title></rect>
 <text x="454" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Jul</text>
-<rect x="480" y="116" width="22" height="108" rx="3" fill="#ff8a65"><title>Aug: 11 contributions</title></rect>
+<rect x="480" y="96" width="22" height="128" rx="3" fill="#ff8a65"><title>Aug: 21 contributions</title></rect>
 <text x="491" y="247" fill="#a6adbb" font-family="Cascadia Mono,Consolas,monospace" font-size="10" text-anchor="middle">Aug</text>
 <line x1="30" y1="224" x2="510" y2="224" stroke="#454955"/>
 </svg>
