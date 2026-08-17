@@ -83,6 +83,11 @@ function Write-Svg([string]$FileName, [System.Collections.Generic.List[string]]$
     [System.IO.File]::WriteAllText($path, ($Lines -join "`n"), [System.Text.UTF8Encoding]::new($false))
 }
 
+function Get-SvgDataUri([System.Collections.Generic.List[string]]$Lines) {
+    $svgBytes = [System.Text.UTF8Encoding]::new($false).GetBytes($Lines -join "`n")
+    return "data:image/svg+xml;base64,$([Convert]::ToBase64String($svgBytes))"
+}
+
 $totalContributions = [Int64]$calendar.totalContributions
 $activeDays = @($days | Where-Object { [Int64]$_.contributionCount -gt 0 }).Count
 $longestStreak = 0
@@ -418,5 +423,26 @@ else {
 }
 [void]$languagesSvg.Add('</svg>')
 Write-Svg "languages.svg" $languagesSvg
+
+$activityUri = Get-SvgDataUri $activitySvg
+$languagesUri = Get-SvgDataUri $languagesSvg
+
+$detailsSvg = [System.Collections.Generic.List[string]]::new()
+[void]$detailsSvg.Add('<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="280" viewBox="0 0 1080 280" role="img" aria-labelledby="title desc">')
+[void]$detailsSvg.Add('<title id="title">Monthly activity and public repository languages</title>')
+[void]$detailsSvg.Add('<desc id="desc">Monthly contribution chapters beside public repository language distribution.</desc>')
+[void]$detailsSvg.Add(('<image href="{0}" x="0" y="0" width="540" height="280"/>' -f $activityUri))
+[void]$detailsSvg.Add(('<image href="{0}" x="540" y="0" width="540" height="280"/>' -f $languagesUri))
+[void]$detailsSvg.Add('</svg>')
+Write-Svg "details.svg" $detailsSvg
+
+$detailsMobileSvg = [System.Collections.Generic.List[string]]::new()
+[void]$detailsMobileSvg.Add('<svg xmlns="http://www.w3.org/2000/svg" width="540" height="576" viewBox="0 0 540 576" role="img" aria-labelledby="title desc">')
+[void]$detailsMobileSvg.Add('<title id="title">Monthly activity and public repository languages</title>')
+[void]$detailsMobileSvg.Add('<desc id="desc">Monthly contribution chapters above public repository language distribution.</desc>')
+[void]$detailsMobileSvg.Add(('<image href="{0}" x="0" y="0" width="540" height="280"/>' -f $activityUri))
+[void]$detailsMobileSvg.Add(('<image href="{0}" x="0" y="296" width="540" height="280"/>' -f $languagesUri))
+[void]$detailsMobileSvg.Add('</svg>')
+Write-Svg "details-mobile.svg" $detailsMobileSvg
 
 Write-Host "Generated profile assets for $Username in $outputDirectory"
